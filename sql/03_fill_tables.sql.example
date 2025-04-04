@@ -1,0 +1,10 @@
+\connect ups_system_db
+
+CREATE OR REPLACE FUNCTION fill_tables()
+RETURNS void
+LANGUAGE plpython3u
+AS $$
+PYTHON_CODE_PLACEHOLDER
+$$;
+
+SELECT * FROM fill_tables();

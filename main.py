@@ -84,12 +84,12 @@ if __name__ == '__main__':
     if use_copy_instead_of_insert:
         sql = f"""COPY retail_centers (id, name, address) FROM STDIN WITH (FORMAT csv, DELIMITER '{csv_delimiter}', HEADER false);
 {"\n".join(retail_centers_data)}
-\\."""
+\."""
     else:
         sql = f"""INSERT INTO retail_centers (id, name, address) VALUES {",".join(retail_centers_data)};"""
 
+    # This will be replaced with "plpy.execute(sql)" in SQL-file
     print(sql)
-    # plpy.execute(sql)
     # ========================================
 
     # ========================================
@@ -127,12 +127,12 @@ if __name__ == '__main__':
     if use_copy_instead_of_insert:
         sql = f"""COPY shipped_items (item_num, retail_center_id, weight, dimension, insurance_amt, destination, final_delivery_date) FROM STDIN WITH (FORMAT csv, DELIMITER '{csv_delimiter}', HEADER false);
 {"\n".join(shipped_items_data)}
-\\."""
+\."""
     else:
         sql = f"""INSERT INTO shipped_items (item_num, retail_center_id, weight, dimension, insurance_amt, destination, final_delivery_date) VALUES {",".join(shipped_items_data)};"""
 
+    # This will be replaced with "plpy.execute(sql)" in SQL-file
     print(sql)
-    # plpy.execute(sql)
     # ========================================
 
     # ========================================
@@ -160,12 +160,12 @@ if __name__ == '__main__':
     if use_copy_instead_of_insert:
         sql = f"""COPY transportation_events (seq_number, type, delivery_route) FROM STDIN WITH (FORMAT csv, DELIMITER '{csv_delimiter}', HEADER false);
 {"\n".join(transportation_events_data)}
-\\."""
+\."""
     else:
         sql = f"""INSERT INTO transportation_events (seq_number, type, delivery_route) VALUES {",".join(transportation_events_data)};"""
 
+    # This will be replaced with "plpy.execute(sql)" in SQL-file
     print(sql)
-    # plpy.execute(sql)
     # ========================================
 
     # ========================================
@@ -200,10 +200,10 @@ if __name__ == '__main__':
     if use_copy_instead_of_insert:
         sql = f"""COPY item_transportations (transportation_event_seq_number, shipped_item_item_num, comment) FROM STDIN WITH (FORMAT csv, DELIMITER '{csv_delimiter}', HEADER false);
 {"\n".join(item_transportations_data)}
-\\."""
+\."""
     else:
         sql = f"""INSERT INTO item_transportations (transportation_event_seq_number, shipped_item_item_num, comment) VALUES {",".join(item_transportations_data)};"""
 
+    # This will be replaced with "plpy.execute(sql)" in SQL-file
     print(sql)
-    # plpy.execute(sql)
     # ========================================
