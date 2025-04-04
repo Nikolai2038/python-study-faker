@@ -27,6 +27,8 @@ main() {
     --username=postgres \
     --dbname=postgres \
     < "${__file_name}" || return "$?"
+
+  unset __file_name
 }
 
 main "${@}" || exit "$?"
