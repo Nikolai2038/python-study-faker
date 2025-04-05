@@ -18,9 +18,28 @@
    ./venv/bin/pip install -r requirements.txt
    ```
 
-## 2. Запуск
+## 2. Настройка
 
-### 2.1. Python
+Настройки можно поменять в файле `./main.py`:
+
+```python
+retail_centers_number = 10
+shipped_items_number = 1000000
+transportation_events_number = 10
+item_transportations_number = shipped_items_number * transportation_events_number
+
+retail_centers_number_parts = 1
+shipped_items_number_parts = 100
+transportation_events_number_parts = 1
+item_transportations_number_parts = shipped_items_number_parts
+
+# Количество слов в словаре для заполнения поля "comment" в таблице "item_transportations"
+words_in_dictionary = 1000
+```
+
+## 3. Запуск
+
+### 3.1. Вывод SQL-команд
 
 Запустить проект в IDE или командой:
 
@@ -28,15 +47,18 @@
 ./venv/bin/python main.py
 ```
 
-### 2.2. SQL
+Вставки выводятся при помощи метода `COPY`.
+Чтобы выводить `INSERT`, в файле `./main.py` изменить `use_copy_instead_of_insert` с `True` на `False`.
 
-#### 2.2.1. Сброс БД
+### 3.2. Выполнение SQL-команд
 
 ```sh
 ./reset.sh
 ```
 
-#### 2.2.2. Создание полного дампа БД
+Будет использовать вставки `INSERT` (всегда задаёт `use_copy_instead_of_insert = False`), так как `plpy.execute` не поддерживает чтение из `STDIN`
+
+### 3.3. Создание полного дампа БД
 
 ```sh
 ./pg_dump.sh
@@ -44,7 +66,7 @@
 
 Дамп будет создан в папке `./dumps`
 
-#### 2.2.3. Выполнение SQL-файла
+### 3.4. Выполнение конкретного SQL-файла
 
 ```sh
 ./psql.sh <sql_file_path>

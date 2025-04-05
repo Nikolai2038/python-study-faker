@@ -30,6 +30,8 @@ faker = Faker('ru_RU', use_weighting=False)
 # Settings
 # ========================================
 use_copy_instead_of_insert = True
+
+# CSV delimiter for "COPY" commands
 csv_delimiter = '|'
 
 retail_centers_number = 10
