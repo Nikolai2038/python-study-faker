@@ -27,7 +27,7 @@
 
 ## 4. Настройка
 
-Настройки можно поменять в файле `./main.py`:
+Настройки можно поменять в файле `./python/main.py`:
 
 ```python
 retail_centers_number = 10
@@ -77,24 +77,24 @@ words_in_dictionary = 1000
 ```
 
 Вставки выводятся при помощи метода `COPY`.
-Чтобы выводить `INSERT`, в файле `./main.py` изменить `use_copy_instead_of_insert` с `True` на `False`.
+Чтобы выводить `INSERT`, в файле `./python/main.py` изменить `use_copy_instead_of_insert` с `True` на `False`.
 
 ### 7.2. Создание полного дампа БД
 
 ```sh
-./pg_dump.sh
+./shell/dump.sh
 ```
 
-Дамп будет создан в папке `./dumps`
+Дамп будет создан в папке `./sql/0_dumps`
 
 ### 7.3. Выполнение конкретного SQL-файла
 
 ```sh
-./psql.sh <sql_file_path>
+./shell/psql.sh <sql_file_path>
 ```
 
 Данную команду также можно использовать для применения дампа - например:
 
 ```sh
-/psql.sh ./dumps/ups_system_db_dump_2025-04-04_23-30-34.sql
+./shell/psql.sh ./dumps/ups_system_db_dump_2025-04-04_23-30-34.sql
 ```
