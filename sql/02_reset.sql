@@ -62,3 +62,12 @@ COMMENT ON EXTENSION plpython3u IS 'PL/Python3U untrusted procedural language';
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
+
+SHOW wal_level;
+SHOW archive_mode;
+SHOW max_wal_senders;
+
+ALTER SYSTEM SET wal_level = 'minimal';
+ALTER SYSTEM SET archive_mode = 'off';
+ALTER SYSTEM SET max_wal_senders = 0;
+SELECT pg_reload_conf();

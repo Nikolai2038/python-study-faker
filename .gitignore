@@ -10,5 +10,5 @@
 # Dump files
 /dumps/*.sql
 
-# Generated file from ./sql/03_fill_tables.sql.example
-/sql/03_fill_tables.sql
+# Generated file from ./sql/04_fill_tables.sql.example
+/sql/04_fill_tables.sql

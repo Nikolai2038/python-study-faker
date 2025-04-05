@@ -35,13 +35,13 @@ csv_delimiter = '|'
 retail_centers_number = 10
 shipped_items_number = 1000000
 transportation_events_number = 10
-item_transportations_number = 10000000
+item_transportations_number = shipped_items_number * transportation_events_number
 
 # Будем использовать итерации, так как за раз может не хватить оперативной памяти
 retail_centers_number_parts = 1
 shipped_items_number_parts = 100
 transportation_events_number_parts = 1
-item_transportations_number_parts = 100
+item_transportations_number_parts = shipped_items_number_parts
 
 # Количество слов в словаре для заполнения поля "comment" в таблице "item_transportations"
 words_in_dictionary = 1000
@@ -51,7 +51,12 @@ words_in_dictionary = 1000
 
 # Добавляет в указанную таблицу указанное количество строк, заполняя указанные столбцы при помощи указанной лямбда-функции
 def fill_table(table_name, data_count, data_count_parts, field_names, generate_row):
+    if (data_count % data_count_parts) != 0:
+        raise ValueError("Data count must be divisible by data count parts")
+
     data_count_part_size = data_count // data_count_parts
+
+    print(data_count_part_size)
     for data_iteration in range(data_count_parts):
         data_rows = []
 
@@ -65,7 +70,9 @@ def fill_table(table_name, data_count, data_count_parts, field_names, generate_r
 
         # Generate SQL
         if use_copy_instead_of_insert:
-            sql = f"""COPY {table_name} ({', '.join(field_names)}) FROM STDIN WITH (FORMAT csv, DELIMITER '{csv_delimiter}', HEADER false);{"\n".join(data_rows)}\."""
+            sql = f"""COPY {table_name} ({', '.join(field_names)}) FROM STDIN WITH (FORMAT csv, DELIMITER '{csv_delimiter}', HEADER false);
+{"\n".join(data_rows)}
+\\."""
         else:
             sql = f"""INSERT INTO {table_name} ({', '.join(field_names)}) VALUES {", ".join(data_rows)};"""
 
@@ -102,7 +109,7 @@ if __name__ == '__main__':
         retail_centers_number_parts,
         ['id', 'name', 'address'],
         lambda i: (
-            i,
+            i + 1,
             generate_retail_center(),
             faker.address()
         )
@@ -116,7 +123,7 @@ if __name__ == '__main__':
         ['item_num', 'retail_center_id', 'weight', 'dimension', 'insurance_amt', 'destination',
          'final_delivery_date'],
         lambda i: (
-            i,
+            i + 1,
             random.randint(1, retail_centers_number),
             round(random.uniform(0.1, 30.0), 2),
             round(random.uniform(100.0, 1000.0), 2),
@@ -133,7 +140,7 @@ if __name__ == '__main__':
         transportation_events_number_parts,
         ['seq_number', 'type', 'delivery_route'],
         lambda i: (
-            i,
+            i + 1,
             faker.sentence(random.randint(1, 5)),
             faker.address()
         )
@@ -149,8 +156,8 @@ if __name__ == '__main__':
         item_transportations_number_parts,
         ['transportation_event_seq_number', 'shipped_item_item_num', 'comment'],
         lambda i: (
-            random.randint(1, transportation_events_number),
-            random.randint(1, shipped_items_number),
+            (i % transportation_events_number) + 1,
+            (i // transportation_events_number) + 1,
             faker.text(
                 max_nb_chars=random.randint(200, 255),
                 ext_word_list=dictionary
