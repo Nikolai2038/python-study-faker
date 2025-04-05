@@ -41,19 +41,6 @@ SELECT pg_catalog.setval('public.transportation_event_seq_number_seq', 1, false)
 -- ========================================
 -- Primary keys
 -- ========================================
--- -- Remove duplicates to create primary key in "item_transportations"
--- WITH duplicates AS (SELECT ctid,
---                            ROW_NUMBER() OVER (
---                                PARTITION BY transportation_event_seq_number, shipped_item_item_num
---                                ORDER BY ctid
---                                ) AS rn
---                     FROM public.item_transportations)
--- DELETE
--- FROM public.item_transportations
--- WHERE ctid IN (SELECT ctid
---                FROM duplicates
---                WHERE rn > 1);
-
 ALTER TABLE ONLY public.item_transportations
     ADD CONSTRAINT item_transportations_pkey PRIMARY KEY (transportation_event_seq_number, shipped_item_item_num);
 

@@ -8,7 +8,11 @@
 /venv
 
 # Dump files
-/dumps/*.sql
+/sql/0_dumps
+
+# Query plans
+/sql/2_query/*.log
+/sql/2_query/*.html
 
 # Generated file from ./sql/04_fill_tables.sql.example
-/sql/04_fill_tables.sql
+/sql/1_reset/04_fill_tables.sql
