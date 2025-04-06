@@ -26,8 +26,8 @@ main() {
     # ========================================
     echo "  Getting Query Plan..." >&2
     __file_path_query_plan="${__file_path_without_extension}.log"
-    sed -E 's/^SELECT/EXPLAIN (ANALYZE, VERBOSE, COSTS, SETTINGS, BUFFERS, WAL, TIMING, SUMMARY, MEMORY, FORMAT TEXT) SELECT/' "${__sql_file}" > "${__file_path_sql_with_explain}" || return "$?"
-    ./shell/psql.sh "${__file_path_sql_with_explain}" | grep -v 'You are now connected to database' > "${__file_path_query_plan}" || return "$?"
+    sed -E 's/^SELECT/SET track_io_timing = on\; EXPLAIN (ANALYZE, VERBOSE, COSTS, SETTINGS, BUFFERS, WAL, TIMING, SUMMARY, MEMORY, FORMAT TEXT) SELECT/' "${__sql_file}" > "${__file_path_sql_with_explain}" || return "$?"
+    ./shell/psql.sh "${__file_path_sql_with_explain}" | grep -v '^You are now connected to database' | grep -Ev '^SET' > "${__file_path_query_plan}" || return "$?"
     echo "  Getting Query Plan: success!" >&2
     # ========================================
 
