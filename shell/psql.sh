@@ -18,7 +18,7 @@ main() {
     --port=5432 \
     --username=postgres \
     --dbname=postgres \
-    -c "SELECT pg_terminate_backend(pid) FROM (SELECT pid FROM pg_stat_activity WHERE datname='ups_system_db');" >&2 || return "$?"
+    -c "SELECT pg_terminate_backend(pid) FROM (SELECT pid FROM pg_stat_activity WHERE datname='ups_system_db');" > /dev/null || return "$?"
 
   # Execute SQL-file
   PGPASSWORD='' psql --variable=ON_ERROR_STOP=on \

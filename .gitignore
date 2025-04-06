@@ -10,9 +10,13 @@
 # Dump files
 /sql/0_dumps
 
-# Query plans
+# Query plans results
 /sql/2_query/*.log
 /sql/2_query/*.html
+/sql/2_query/*.lnk
 
 # Generated file from ./sql/04_fill_tables.sql.example
 /sql/1_reset/04_fill_tables.sql
+
+# Cache for Query Plans
+/cache
