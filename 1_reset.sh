@@ -24,7 +24,7 @@ ${__python_file_contents}
 ${__sql_file_contents_after}"
 
   # shellcheck disable=SC2320
-  echo "${__sql_file_contents}" > ./sql/04_fill_tables.sql || return "$?"
+  echo "${__sql_file_contents}" > ./sql/1_reset/04_fill_tables.sql || return "$?"
   # ========================================
 
   ./shell/psql.sh ./sql/1_reset/01_wal_disable.sql || return "$?"
