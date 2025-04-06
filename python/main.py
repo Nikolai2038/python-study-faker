@@ -122,8 +122,7 @@ if __name__ == '__main__':
         "shipped_items",
         shipped_items_number,
         shipped_items_number_parts,
-        ['item_num', 'retail_center_id', 'weight', 'dimension', 'insurance_amt', 'destination',
-         'final_delivery_date'],
+        ['item_num', 'retail_center_id', 'weight', 'dimension', 'insurance_amt', 'destination', 'final_delivery_date'],
         lambda i: (
             i + 1,
             random.randint(1, retail_centers_number),

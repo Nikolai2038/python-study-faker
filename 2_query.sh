@@ -19,23 +19,15 @@ main() {
     __file_path_without_extension="./sql/2_query/${__basename}" || return "$?"
 
     # Create temp file
-    __file_path_query_plan="$(mktemp --tmpdir="${__cache_directory}")" || return "$?"
+    __file_path_sql_with_explain="$(mktemp --tmpdir="${__cache_directory}")" || return "$?"
 
     # ========================================
     # Get Query Plan
     # ========================================
     echo "  Getting Query Plan..." >&2
-
-    # Execute explain for TEXT format
-    __file_text="${__file_path_without_extension}.log"
-    sed -E 's/^SELECT/EXPLAIN (FORMAT TEXT) SELECT/' "${__sql_file}" > "${__file_path_query_plan}" || return "$?"
-    ./shell/psql.sh "${__file_path_query_plan}" | grep -v 'You are now connected to database' > "${__file_text}" || return "$?"
-
-    # # Execute explain for JSON format
-    # __file_json="${__file_path_without_extension}.json"
-    # sed -E 's/^SELECT/EXPLAIN (FORMAT JSON) SELECT/' "${__sql_file}" > "${__file_path_query_plan}" || return "$?"
-    # ./shell/psql.sh "${__file_path_query_plan}" | sed -En 's/^   (.*[^ ]+) +\+$/\1/p' > "${__file_json}" || return "$?"
-
+    __file_path_query_plan="${__file_path_without_extension}.log"
+    sed -E 's/^SELECT/EXPLAIN (ANALYZE, VERBOSE, COSTS, SETTINGS, BUFFERS, WAL, TIMING, SUMMARY, MEMORY, FORMAT TEXT) SELECT/' "${__sql_file}" > "${__file_path_sql_with_explain}" || return "$?"
+    ./shell/psql.sh "${__file_path_sql_with_explain}" | grep -v 'You are now connected to database' > "${__file_path_query_plan}" || return "$?"
     echo "  Getting Query Plan: success!" >&2
     # ========================================
 
@@ -45,14 +37,14 @@ main() {
     # shellcheck disable=SC2002
     cat << EOF | tee "${__file_path_request}" > /dev/null || return "$?"
 {
-  "plan": "$(cat "${__file_text}" | tr '\n' '\r' | sed 's/\r/\\n/g')"
+  "plan": "$(cat "${__file_path_query_plan}" | tr '\n' '\r' | sed 's/\r/\\n/g')"
 }
 EOF
-    __request_hash="$(sha256sum "${__file_path_request}" | cut -d ' ' -f 1)" || return "$?"
     echo "  Generating request: success!" >&2
 
     # We pass our plan to "explain.tensor.ru" for it to make it in colorful HTML
     echo "  Getting Query Plan as HTML..." >&2
+    __request_hash="$(sha256sum "${__file_path_request}" | cut -d ' ' -f 1)" || return "$?"
     __file_response="./cache/$(basename "${__sql_file}" .sql)_${__request_hash}.html"
     if [ -f "${__file_response}" ]; then
       echo "  Found cached file!" >&2
@@ -110,7 +102,7 @@ EOF
     echo "  Saving HTML file: success!" >&2
 
     # Clear temp file
-    rm "${__file_path_query_plan}" "${__file_path_request}" || return "$?"
+    rm "${__file_path_sql_with_explain}" "${__file_path_request}" || return "$?"
   done
 }
 
