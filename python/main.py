@@ -128,7 +128,7 @@ if __name__ == '__main__':
             random.randint(1, retail_centers_number),
             round(random.uniform(0.1, 30.0), 2),
             round(random.uniform(100.0, 1000.0), 2),
-            random.uniform(50, 5000) * 1000,
+            round(random.uniform(50, 5000)) * 1000,
             faker.address(),
             faker.date()
         )
