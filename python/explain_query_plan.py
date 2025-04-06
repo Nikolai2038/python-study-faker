@@ -13,4 +13,4 @@ async def fetch_html(url):
     await browser.close()
 
 
-asyncio.get_event_loop().run_until_complete(fetch_html(sys.argv[1]))
+asyncio.new_event_loop().run_until_complete(fetch_html(sys.argv[1]))

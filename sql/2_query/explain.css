@@ -1,0 +1,1281 @@
+.hidden{
+  display: none;
+}
+
+.node rect {
+  cursor: move;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+
+.node text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+  font-size: 7pt;
+}
+
+/*-- -> chart*/
+#slide{
+  border   : none;
+  position : absolute;
+  top  : 0;
+  left : 0;
+  height : 100%;
+}
+
+DIV.popover-content P{
+  margin-bottom: 0;
+}
+
+DIV.svg-tooltip {
+  position : absolute;
+  z-index : 500;
+  top: 0;
+  left: 0;
+  visibility : hidden;
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  border : 1px solid black;
+  background-color : #fcfcfc;
+  max-width: 1400px!important;
+}
+
+DIV.sql-tooltip  {
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  /*border : 1px solid black;*/
+  background-color : #fcfcfc;
+  max-width: 1400px;
+  max-height: 600px;
+}
+
+DIV.sql-tooltip DIV, DIV.idxs-node DIV {
+  white-space : nowrap;
+  border : none;
+  padding : 4px;
+  font-size : 8pt;
+  color:#a0a0a0;
+}
+
+/*DIV.sql-tooltip TD,DIV.idxs-node TD {*/
+/*  white-space : nowrap;*/
+/*  border : none;*/
+/*  padding : 4px;*/
+/*  font-size : 10pt;*/
+/*  color:#a0a0a0;*/
+/*  vertical-align: bottom;*/
+/*  padding-bottom: 3px;*/
+/*}*/
+
+.sql-tooltip-td {
+  white-space : nowrap;
+  border : none;
+  padding : 4px;
+  font-size : 10pt;
+  color:#a0a0a0;
+  vertical-align: bottom;
+  padding-bottom: 3px;
+}
+
+.sql-tooltip-td-value {
+  white-space : nowrap;
+  font-size : 16pt;
+  --font-weight:bold;
+  color:black;
+  text-align:right;
+  vertical-align: bottom;
+  line-height:18px;
+  padding-bottom: 7px;
+}
+
+
+DIV.sql-tooltip TD.percent,DIV.idxs-node TD.percent {
+  text-align:right;
+  color:#406080;
+  vertical-align: bottom;
+}
+
+.sql-tooltip-td-percent {
+  text-align:right;
+  color:#406080;
+  vertical-align: bottom;
+}
+
+.ul_li_rel{
+  /*color: #4060A0;*/
+  font-size: 14pt;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+DIV.sql-tooltip PRE,DIV.idxs-node PRE {
+  margin: 0;
+  --padding: 0;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size:10px;
+  line-height:20px;
+  border:none;
+  padding:4px 8px 4px 8px;
+  background-color:#f4f4f4;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.sql-tooltip-pre {
+  margin: 0 2px;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size:10px;
+  line-height:20px;
+  border:none;
+  padding:4px 8px 4px 8px;
+  background-color:#f4f4f4;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+SPAN.exectime {
+  font-size : 12pt;
+  font-weight : bold;
+  color : #000000;
+}
+
+SPAN.header {
+  color : #a0a0a0;
+  font-size: 10pt;
+}
+
+SPAN.hilite {
+  color : #e04000;
+}
+
+PATH.tile {
+  stroke-width: 1px;
+  cursor: pointer;
+}
+PATH.tile:hover {
+  stroke-width: 1px;
+  stroke: #000000;
+}
+SVG TEXT.label {
+  text-anchor: middle;
+  dominant-baseline : middle;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 12px;
+  font-weight:normal;
+  line-height: 12px;
+  pointer-events: none;
+  font-optical-sizing: none;
+}
+
+PATH.arc {
+  stroke: #fcfcfc;
+  stroke-width: .5px;
+  cursor: pointer;
+}
+PATH.arc:hover {
+  stroke : #000000;
+  stroke-width : 1.5px;
+}
+
+SPAN.explType {
+  color: #E04000;
+  white-space:nowrap;
+}
+SPAN.explIndex {
+  color: #40A060;
+  white-space:nowrap;
+}
+SPAN.explRelation {
+  color: #4060A0;
+  white-space:nowrap;
+}
+SPAN.explAlias {
+  color: #C060C0;
+  white-space:nowrap;
+}
+SPAN.arrow {
+  font-size   : 9pt;
+  line-height : 7pt;
+}
+
+SPAN.nodeno {
+  margin-left : 10px;
+}
+
+.svg-arc {
+  stroke : #fcfcfc;
+  stroke-width : .5px;
+  cursor : pointer;
+}
+.svg-arc-hover {
+  stroke : #000000;
+  stroke-width : 1.5px;
+}
+.svg-edgeB {
+  opacity : 0.2;
+  fill : url(#gradient-lin);
+}
+.svg-edgeF {
+  opacity : 1;
+  fill : url(#gradient-lin);
+}
+.svg-nodeB {
+  fill : #f0f4f8;
+}
+.svg-nodeF {
+  mask : url(#mask);
+  stroke : #e04000;
+  fill : #f0f4f8;
+}
+.svg-textB {
+  font-size : 10px;
+  kerning : -1;
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  text-anchor : middle;
+  vertical-align : middle;
+  stroke : #f8f8f8;
+  stroke-width : 2px;
+}
+.svg-textF {
+  font-size : 10px;
+  kerning : -1;
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  text-anchor : middle;
+  vertical-align : middle;
+}
+
+/*-- <- chart*/
+
+PRE#parsed_pl {
+  color: #A0A0A0;
+  white-space: pre-wrap;
+  word-break: break-all;
+
+}
+
+DIV#explain_tbl_cont > TABLE TD, TABLE#stat TD {
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size   : 8pt;
+  padding     : 6px 6px 2px 6px;
+}
+
+DIV#explain_tbl_cont > TABLE TD.int, TABLE#stat TD.int{
+  text-align  : right;
+  white-space : nowrap;
+  padding     : 6px 0 2px 6px;
+}
+
+TABLE#stat TD.spacer {
+  padding   : 2px !important;
+  font-size : 1pt;
+}
+
+.stat_node{
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  cursor: pointer;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+TD.int {
+  text-align  : right;
+  white-space : nowrap;
+  /*padding     : 4px 6px 0;*/
+}
+
+TD.spacer {
+  padding   : 2px !important;
+  font-size : 1pt;
+}
+
+TD.expander {
+  /*padding : 0 !important;*/
+  width   : 24px;
+  vertical-align: middle;
+}
+
+TABLE TD.scan-filter {
+  width   : 14px;
+}
+TABLE TR.grey {
+  color : #A0A0A0;
+}
+
+DIV.int_wraper {
+  padding:7px 0 0 6px;
+  text-align: right;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+DIV.val_wraper {
+  padding:7px 0 0 6px;
+  text-align: right;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+DIV.gist {
+  height:2px!important;
+  float: right;
+}
+
+DIV#explain_tbl_cont > TABLE TH, TABLE#stat TH {
+  color       : #A0A0A0;
+  border      : none;
+  background  : none;
+  padding     : 2px;
+  margin      : 0;
+  font-size   : 7pt;
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  /* font-family: 'Consolas', 'Lucida Console'; */
+  font-weight : normal;
+  text-align  : center;
+  white-space : nowrap;
+}
+
+DIV#parsed > PRE, DIV#text > PRE, DIV#domain > PRE {
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size   : 10pt;
+  line-height : 1.5em;
+  white-space: pre-wrap;
+  word-break: break-all;
+
+}
+
+TABLE.tbl_common_prop TD{
+  font-size : .85rem;
+  line-height: 1.2;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  padding: .25rem!important;
+}
+
+
+DIV#context TABLE TD {
+  font-size : 9pt;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+
+
+DIV#context TABLE.pack {
+  margin : 0;
+}
+
+DIV#context TABLE.pack > TBODY > TR > TD {
+  padding      : 4px;
+  padding-left : 8px;
+  font-size    : 9pt;
+}
+DIV#context TABLE.pack > TBODY > TR > TD:first-child {
+  color       : #C0C0C0;
+  white-space : nowrap;
+}
+DIV#context TABLE.pack > TBODY > TR > TD:last-child {
+  width : 100%;
+}
+
+DIV#context TABLE#context-tb TD  {
+  line-height    : 1.5em;
+  padding-top    : 4px;
+  padding-bottom : 4px;
+}
+
+DIV#context TABLE#context-tb TD > PRE {
+  line-height : 1.5em;
+  border      : none;
+  background  : none;
+  padding     : 0;
+  margin      : 0;
+  color       : #808080;
+  font-size   : 9pt;
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+DIV#context TABLE#context-tb TD.content {
+  padding : 0;
+  margin  : 0;
+  width   : 100%;
+}
+
+DIV#context TABLE#context-tb TD.content > TABLE {
+  width   : 100%;
+}
+
+td.context_tm{
+  width : 1%;
+  white-space: nowrap;
+  text-align: right;
+}
+DIV#context TABLE#context-tb TD.content > TABLE TR:first-child > TD {
+  border-top : none;
+}
+
+DIV#context SPAN.int {
+  color : #A0A0A0;
+}
+
+.popover{
+  max-width: 1600px;
+  width: auto;
+}
+
+.popover-content {
+  padding: 3px;
+  font-size: 10pt;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+DIV#popover-body{
+  margin : 0;
+  padding : 0;
+}
+
+.sql_keyword {
+  color:  #0060c0;
+  font-weight: bold;
+}
+.sql_boolop{
+  color:   #40a0e0;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.sql_isbool{
+  color:  #0060c0;
+  font-weight: normal;
+}
+
+.sql_isnull{
+  color:  #0060c0;
+  font-weight: normal;
+}
+
+.sql_const
+{
+  color: #008000;
+}
+.sql_relation {
+  color: #C00040;
+}
+.sql_alias {
+  color: #008000;
+  font-weight: bold;
+}
+.sql_window{
+  color: #315C60;
+}
+.sql_cast
+{
+  color:  #a0a0a0;
+}
+.sql_column{
+  color: #8000C0;
+}
+.sql_type
+{
+  color: #C08000;
+}
+.sql_param
+{
+  color:  #E00000;
+}
+
+.sql_function
+{
+  color: #0080C0;
+}
+
+.sql_asterisk
+{
+  color: #8000C0;
+  font-weight: bold;
+}
+
+DIV.cpicons-conteiner{
+  text-align:right;
+  margin-bottom:-2rem;
+  height: 2rem;
+}
+
+.cp-icons
+{
+  padding: 8px 4px 1px 4px;
+  /*padding-right: 8px;*/
+  display:inline-block;
+  cursor: pointer;
+  position:relative; 
+  z-index:1;
+  background-color: #FFFFFF;
+}
+.cp-icons1
+{
+  padding: 2px 4px 1px 4px;
+  display:inline-block;
+  cursor: pointer;
+}
+
+.line-numbers a {
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  display: block;
+  font-size: 80% !important;
+  white-space: nowrap;
+  color: #a0a0a0;
+}
+
+.diff-line-num a {
+  color: rgba(0,0,0,0.3);
+}
+
+.line-numbers a i {
+  float: left;
+  margin-top: 3px;
+  margin-right: 5px;
+  visibility: hidden;
+}
+
+.line-numbers a:hover i {
+  visibility: visible;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+span.sql_hdr {
+  color: #c08080;
+  user-select: none;
+}
+
+span.sql_div {
+  user-select: none;
+  color: #E0E0E0;
+}
+
+span.sql_node + span {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-underline-position: under;
+  /*border-bottom: 1px dashed red ;*/
+}
+
+SVG TEXT.labelG {
+  text-anchor: middle;
+  dominant-baseline : middle;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 8px;
+  line-height: 8px;
+  pointer-events: none;
+  font-optical-sizing: none;
+}
+
+DIV#explain_tbl_cont > TABLE TD PRE {
+  position    :  relative;
+  color       : #A0A0A0;
+  border      : none;
+  background  : none;
+  padding     : 0 4px !important;
+  margin      : 0;
+  font-size   : 10pt;
+  line-height : 1.5em;
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  height: 100%;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+TABLE#stat TD PRE {
+  position    :  relative;
+  color       : #A0A0A0;
+  border      : none;
+  background  : none;
+  padding     : 4px !important;
+  margin      : 0;
+  font-size   : 10pt;
+  line-height : 1.5em;
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  height: 100%;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+div.divider{
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  width: 5pt;
+  height: 100%;
+  text-align: center;
+  margin:0 5pt 0 5pt;
+  padding:0 5pt 0 5pt;
+}
+span.divider{
+  display: inline-block;
+  width: 2px;
+  height: 100%;
+  background-color: #cfcfcf;
+}
+
+TABLE TD.rcmd {
+  padding-top : 5px!important; ;
+  /*width   : 25px;*/
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.over_head{
+  display: flex;
+  justify-content: space-between;
+  height: 29px;
+}
+
+DIV.adv_chart{
+  /*display: flex;*/
+  align-items:center;
+  justify-content: start;
+  /*flex-flow: wrap;*/
+  /*max-width: 1100px;*/
+  width: 66%;
+  height: 29px;
+  overflow: hidden;
+}
+
+DIV.adv_chart_el{
+  margin: 3px 1px;
+  display: inline-block;
+}
+
+span.adv_name {
+  /*background-color:#406080;*/
+  color:#f0f0f0;
+  font-size:10pt;
+  border-radius:5px;
+  border:1px solid #c0c0c0;
+  padding:4px;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  margin-right: 2px;
+}
+
+.adv_num{
+  font-size:10pt;
+  margin-right:12px;
+  margin-left:4px;
+  color: #08c;
+}
+
+.ext_num{
+  color: #C08080;
+}
+
+.links-tooltip {
+  /*width:500px ;*/
+  padding: 0;
+  margin-top: 8px;
+  margin-left: -4px;
+}
+
+DIV.map_chart{
+  display: flex;
+  align-items:start;
+  justify-content: end;
+  flex-flow: wrap;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right:.5rem;
+}
+
+DIV.map_chart_el{
+  margin: 3px 1px;
+  display: inline-block;
+  color: #21367c;
+  font-size:10pt;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+
+
+DIV.svg-tooltip span.value{
+  white-space : nowrap;
+  font-size : 16pt;
+  --font-weight:bold;
+  color:black;
+  margin-bottom: 7px;
+  /*margin-right:.5rem;*/
+}
+
+span.percent {
+  color:#406080;
+}
+
+.fl-state{
+  /*width: 10px;*/
+  /*height: 10px;*/
+  display: block;
+  white-space: nowrap;
+  /*margin: 5px;*/
+  /*border: solid #c0c0c0 1px;*/
+}
+td.fltr{
+  text-align: right;
+}
+.slider-icon{
+  color: #407aa0;
+  background-color: #f8f8f8;
+  font-size: 10pt;
+}
+.ext_num1{
+  color: #60A0C0;
+  border-bottom: 0;
+  white-space: nowrap;
+}
+.ext_num2{
+  color: #F08080;
+  border-bottom: 0;
+  white-space: nowrap;
+}
+.ext_str{
+  color: #80C080;
+  border-bottom: 0;
+}
+.ext_dvdr {
+  user-select: none;
+  /*margin-left: -0.1em;*/
+  color: #c0c0c0;
+}
+
+.res_resset{
+  color: #F08080;
+  border-bottom: 0;
+  text-shadow: 0 0 #00000080, 0 0 16px hsla(60, 100%, 50%), 0 0 20px hsla(90, 100%, 50%), 0 0 24px hsla(120, 100%, 50%);
+}
+
+TD.summary_time{
+  color:  #212529;
+  text-shadow: 0 0 #00000080, 0 0 16px hsla(60, 100%, 50%), 0 0 20px hsla(90, 100%, 50%), 0 0 24px hsla(120, 100%, 50%);
+}
+
+.res_rows{
+  color: #60A0C0;
+  border-bottom: 0;
+}
+
+.res_width{
+  color: #60A0C0;
+  border-bottom: 0;
+}
+
+TD.node{
+  padding: 0!important;
+  vertical-align: middle;
+  white-space: pre-wrap;
+  overflow: auto;
+  word-break: break-all;
+}
+
+TD.level-divider{
+  border: none;
+  border-right : 4px solid #e8e8e8;
+  padding: 0 2px 0 0!important;
+  font-size: 10pt!important;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+TD.level-divider-o{
+  border: none;
+  border-right : 4px solid #6080a0;
+  padding: 0 2px 0 0!important;
+  font-size: 10pt!important;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+TD.level-divider-b{
+  border: none;
+  border-right : 4px solid #a0c0e0;
+  padding: 0 2px 0 0!important;
+  font-size: 10pt!important;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+TD.node-text{
+  border: none;
+  width: 100%;
+  padding: 4px 0 4px 8px !important;
+  /* margin: -2px 0 -2px 0!important; */
+  font-size: 10pt!important;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  color: #A0A0A0!important;
+  word-break: break-word;
+}
+
+DIV.node-text{
+  font-size: 10pt!important;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  color: #A0A0A0!important;
+  display: inline-block;
+  padding-left:5px;
+  /*padding-top: 2px;*/
+  padding-bottom: 1px;
+  word-break: break-word;
+}
+
+DIV.toggle_icon {
+  display: inline-block;
+  height: 18px;
+  width: 16px;
+  padding-top: 2px;
+  padding-left: 6px;
+  font-size: 7pt;
+}
+
+DIV.toggle_icon_dg {
+  display: inline-block;
+  height: 18px;
+  width: 16px;
+  padding-top: 2px;
+  font-size: 7pt!important;
+}
+TD.def_td{
+  padding: 0 0 0 4px!important;
+}
+
+.node-link{
+  text-decoration: underline dotted;
+  color:#C0C0C0;
+  cursor: pointer;
+}
+
+.idxs-node{
+  /*border: 1px solid #e0e0e0;*/
+  padding: .5rem;
+  margin-top : -.5rem;
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+.idxs-node-c{
+  padding-top: .5rem ;
+  border: 1px solid #e0e0e0;
+}
+
+.idxs-sql{
+  border: 1px solid #e0e0e0;
+  padding: .5rem;
+  margin: .5rem 0 .5rem 3rem;
+  min-width:700px;
+  /*margin-left: */
+}
+
+.idxs-sql-s{
+  border: 1px solid #e0e0e0;
+  padding: .5rem ;
+  margin: .5rem 0 0 0;
+}
+
+.idxs-sql-s1{
+  border-right: 1px solid #e0e0e0;
+  padding: 0 .4rem .2rem .4rem;
+  /*margin: .5rem 0 0 0;*/
+}
+
+.sql_relation_idxs {
+  color: #C00040;
+  font-size: 1.4rem;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+.summary-table{
+  min-width: 800px;
+}
+
+.indexes-link{
+  color:#007bff;
+  cursor: pointer;
+  text-decoration: underline dashed;
+}
+.cp-warning{
+  margin-right: 1rem;
+}
+
+.adv_num_ext{
+  font-size:10pt;
+  margin-right:12px;
+  margin-left:4px;
+  color: #08c;
+  cursor: default;
+}
+
+.speeds-io{
+  color:#A0A0A0;
+  font-size: 10pt;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+.speeds-io-td{
+  white-space: nowrap;
+  border: none;
+  padding: 4px 4px 0 4px!important;
+}
+
+.io-r-ext{
+  /*color: #A0A0A0!important;*/
+  padding: 1px 0 0 6px;
+  text-align: right;
+  line-height: 16px;
+  white-space: nowrap;
+}
+.io-w-ext{
+  /*color: #A0A0A0!important;*/
+  padding: 1px 0 0 6px;
+  text-align: right;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+DIV.speed-io{
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+DIV.buf-sum{
+  margin-right: 10px;
+  color: #A0A0A0;
+  text-align: right;
+}
+
+DIV.buf-sum-str{
+  font-size: 10pt;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  padding-top: 2px;
+  /* padding-right: 4px; */
+  line-height: 16px;
+}
+
+SPAN.buf-sum-td{
+  /*color: #A0A0A0;*/
+  font-size: 8pt;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  white-space: nowrap;
+}
+
+DIV.buf-bsize{
+  color: #A0A0A0!important;
+  text-align: right;
+  white-space: nowrap!important;
+  word-break: keep-all!important;
+  /* padding-right: 4px; */
+}
+
+DIV.io-speed{
+  color: #A0A0A0;
+  text-align: right;
+}
+
+.video-link{
+  border-bottom: 0;
+  padding-bottom: 2px;
+  cursor: help;
+}
+.video-link:hover{
+  border-bottom: 0;
+}
+
+.advs-node{
+  border: #CCCCCC solid 1px;
+  padding: .5rem;
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+.adv-text{
+  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 10pt;
+}
+.buffer{
+  padding-top: 7px!important;
+}
+
+pre.pre_tooltip {
+  background-color: #f5f5f5 !important;
+  font-size: 9pt!important;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+pre.err_msg {
+  margin:0 0;
+  border: 0;
+  max-width: 1600px;
+  word-break: break-all;
+  white-space: pre-line;
+}
+
+TD.a_rows{
+  color:  #80C080;
+}
+
+TD.rr{
+  color:  #C04000;
+}
+
+TD.summary_rows{
+  color:  #00C040;
+  /* padding-right: 4px!important; */
+}
+
+TD.ext_pd{
+  /* padding-right: 4px!important; */
+}
+
+TD.summary_rr{
+  color:  #C04000;
+  /* padding-right: 4px!important; */
+}
+
+TD.summary_blck{
+  color:  #212529;
+  /* padding-right: 4px!important; */
+}
+
+TD.tm-incl{
+  color:  #c0c0c0;
+}
+
+DIV#node-head SVG {
+  shape-rendering:crispEdges;
+}
+DIV#node-head-ext SVG {
+  shape-rendering:crispEdges;
+}
+DIV#node-head SVG TEXT.label {
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 10px!important;
+  font-weight: normal;
+  /*dominant-baseline : middle;*/
+  /*dominant-baseline : hanging;*/
+  dominant-baseline : ideographic;
+  text-anchor: start;
+  fill: #fcfcfc;
+  pointer-events: none;
+  font-optical-sizing: none;
+}
+
+RECT.bar {
+  shape-rendering : crispEdges;
+  --shape-rendering : geometricPrecision;
+  stroke: #fcfcfc;
+  stroke-width: 1px;
+  cursor: pointer;
+}
+RECT.bar:hover {
+  stroke : #000000;
+}
+
+a.manual-link {
+  color: #c08080;
+  border-bottom: 0;
+  cursor: help;
+}
+
+a.manual-link:visited,a.manual-link:active,a.manual-link:hover  {
+  color: #c08080;
+  border-bottom: 0;
+  text-decoration: none!important;
+}
+
+TD.n-number{
+  padding: 5px 6px 3px 6px!important;
+  text-align: right;
+}
+TD.ratio{
+  padding:  7px 0 0 4px!important;
+  line-height: 14px!important;
+  font-size   : 12pt!important;
+  text-align: center;
+}
+TD.loops{
+  /* padding-top: 6px!important; */
+  /*color:hsla(240, 95%, 50%, 0.75);*/
+  text-align: right;
+}
+
+TD.fltr{
+  padding: 4px 0 2px 6px!important;
+  text-align: right;
+}
+
+div.hidden-exp{
+  color: #d0d0d0;
+  padding-top: 2px;
+  word-break: break-word;
+}
+div.io-exp{
+  color: #F08080;
+}
+div.pt2{
+  padding-top: 2px!important;
+}
+
+div.io-red{
+  color: #C00000!important;
+}
+div.io-blue{
+  color:#406080!important;
+}
+div.io-green{
+  color: #008000!important;
+}
+
+span.navigate {
+  color: #0060c0;
+  cursor: pointer;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  white-space: nowrap;
+}
+div.nav_lnks td{
+  padding: 0 4px!important;
+  font-size: 8pt!important;
+}
+
+div.cp_icon_cont{
+  line-height: 21px;
+  height: 21px;
+  text-align: right;
+  cursor: pointer;
+}
+
+div.rels-sql-s{
+  border: 1px solid #e0e0e0;
+  padding: .5rem;
+  margin: .5rem 0 .5rem .5rem;
+  min-width:700px;
+  font-size: 11px!important;
+}
+div.rels-sql-s pre{
+  font-size: 11px!important;
+}
+div.rel-idx{
+  margin: .5rem 0 .5rem 3rem;
+  min-width:700px;
+  font-size: 11px!important;
+}
+div.rel-idx pre{
+  font-size: 11px!important;
+  white-space: break-spaces;
+}
+.struct-link{
+  border-bottom: 0;
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+.struct-link:hover{
+  border-bottom: 0;
+}
+div.cont-ts-cp{
+  display: flex;
+  justify-content: end;
+  margin-bottom: -1.5rem;
+}
+
+span.snap-ts{
+  margin-right: 0.4rem;
+  margin-top: 0.1rem;
+  color: #808080;
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+span.stat-link{
+  font-size: 16px;
+  margin-top: 0.1rem;
+  margin-left: 0.4rem;
+}
+
+span.err-dep{
+  /*font-size: 16px;*/
+  color: #808080;
+}
+span.parsed-err{
+  /*font-size: 16px;*/
+  color: #000000;
+  font-weight: 800;
+}
+
+a.stat1{
+  color: #000000;
+}
+
+a.stat0{
+  color: #808080;
+}
+
+div.url_bl{
+  display: inline-block;
+  max-width: 1750px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: -8px;
+}
+
+span.dvdr-inh{
+  color: inherit;
+}
+
+DIV#explain_tbl_cont > TABLE TD.ext-val{
+  text-align  : right;
+  white-space : nowrap;
+  padding     : 5px 0 2px 6px;
+}
+
+SPAN.save-pack{
+  cursor: pointer;
+  color:#000000;
+  font-size:1.5rem;
+  margin-right: 10px;
+}
+
+SPAN.delete-plan{
+  font-size:1.5rem;
+  margin-right: 9px;
+  cursor: pointer;
+  padding-left: 4px;
+}
+
+TABLE#explain_tbl TR:not(.grey) TD.node span.text-nowrap {
+  /* text-shadow: 0 0 #00000080, 0 0 24px hsla(60, 100%, 50%); */
+  text-shadow:0 0 #00000080, 0 0 16px hsla(60, 100%, 50%), 0 0 20px hsla(90, 100%, 50%), 0 0 24px hsla(120, 100%, 50%);
+}
+
+TABLE#explain_tbl > TBODY > TR.grey.nex TD.node-text {
+  opacity: 0.5;
+}
+
+/*---- new navbar Linear*/
+SVG.navstack {
+  shape-rendering: crispEdges;
+}
+SVG.navstack RECT {
+  shape-rendering: crispEdges;
+  --shape-rendering: geometricPrecision;
+  stroke: #fcfcfc;
+  stroke-width: 1px;
+  cursor: pointer;
+}
+SVG.navstack TEXT {
+  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 10px;
+  font-weight: normal;
+  /*dominant-baseline: ideographic;*/
+  dominant-baseline: alphabetic;
+  text-anchor: start;
+  fill: #fcfcfc;
+  pointer-events: none;
+  font-optical-sizing: none;
+  shape-rendering: crispEdges;
+}
+SVG.navstack RECT:hover {
+  stroke: #000000;
+}
+
+.nodes_ids{
+  vertical-align: top;
+  padding: 1rem;
+  text-align: right;
+  color: #08c;
+}

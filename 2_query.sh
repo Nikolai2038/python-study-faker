@@ -30,7 +30,7 @@ EOF
     # We pass our plan to "explain.tensor.ru" for it to make it in colorful HTML
     echo "Passing Query Plan to \"explain.tensor.ru\"..." >&2
     __response="$(
-      curl --fail -X POST https://explain.tensor.ru/explain \
+      curl --fail --silent --show-error -X POST https://explain.tensor.ru/explain \
         -H "Content-Type: application/json" \
         -d @"${__temp_file_path}"
     )" || return "$?"
@@ -61,17 +61,13 @@ ${__response}" >&2
 
     echo "Saving HTML file..." >&2
     __file_html="${__file_path_without_extension}.html"
-    # We add extra CSS styles to remove borders under links (they are not links anymore anyway)
     cat << EOF | tee "${__file_html}" > /dev/null || return "$?"
-<html>
+<html lang="en">
   <head>
-    <link href="https://explain.tensor.ru/css/explain.css" rel="stylesheet">
-    <style>
-      .ext_num1{ border-bottom: 0px; }
-      .ext_num2{ border-bottom: 0px; }
-    </style>
+    <title>Query Plan</title>
+    <link href="./explain.css" rel="stylesheet">
   </head>
-  <body style="transform: scale(1.5); transform-origin: top left; background-color: #1b1b1b">
+  <body style="font-size: 24pt; background-color: #1b1b1b">
     ${__html_pre_tag_content}
   </body>
 </html>
