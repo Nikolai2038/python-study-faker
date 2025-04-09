@@ -10,11 +10,14 @@ main() {
   sed -Ei 's/^( *border-bottom *:).*$/\1 0px\;/' "${__css_path}" || return "$?"
 
   # Change Font
-  sed -Ei "s/^( *font-family *:).*\$/\\1 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace\\;/" "${__css_path}" || return "$?"
+  sed -Ei "s/^( *font-family *:).*\$/\\1 'Consolas', monospace\\;/" "${__css_path}" || return "$?"
 
   # Fix errors
   sed -Ei 's/nowrap\;nodes_ids$/nowrap\;/g' "${__css_path}" || return "$?"
   sed -Ei 's/align-items:top\;$/align-items:start\;/g' "${__css_path}" || return "$?"
+
+  # Font size
+  sed -Ei 's/font-size: .*/font-size: 10pt\;/' "${__css_path}" || return "$?"
 
   # Fix warnings
   sed -Ei 's/([ :]0)px/\1/g' "${__css_path}" || return "$?"

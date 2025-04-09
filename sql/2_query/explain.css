@@ -11,7 +11,7 @@
 .node text {
   pointer-events: none;
   text-shadow: 0 1px 0 #fff;
-  font-size: 7pt;
+  font-size: 10pt;
 }
 
 /*-- -> chart*/
@@ -33,14 +33,14 @@ DIV.svg-tooltip {
   top: 0;
   left: 0;
   visibility : hidden;
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
   border : 1px solid black;
   background-color : #fcfcfc;
   max-width: 1400px!important;
 }
 
 DIV.sql-tooltip  {
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
   /*border : 1px solid black;*/
   background-color : #fcfcfc;
   max-width: 1400px;
@@ -101,14 +101,14 @@ DIV.sql-tooltip TD.percent,DIV.idxs-node TD.percent {
 
 .ul_li_rel{
   /*color: #4060A0;*/
-  font-size: 14pt;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 10pt;
+  font-family: 'Consolas', monospace;
 }
 
 DIV.sql-tooltip PRE,DIV.idxs-node PRE {
   margin: 0;
   --padding: 0;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family: 'Consolas', monospace;
   font-size:10px;
   line-height:20px;
   border:none;
@@ -120,7 +120,7 @@ DIV.sql-tooltip PRE,DIV.idxs-node PRE {
 
 .sql-tooltip-pre {
   margin: 0 2px;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family: 'Consolas', monospace;
   font-size:10px;
   line-height:20px;
   border:none;
@@ -156,8 +156,8 @@ PATH.tile:hover {
 SVG TEXT.label {
   text-anchor: middle;
   dominant-baseline : middle;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
-  font-size: 12px;
+  font-family: 'Consolas', monospace;
+  font-size: 10pt;
   font-weight:normal;
   line-height: 12px;
   pointer-events: none;
@@ -227,7 +227,7 @@ SPAN.nodeno {
 .svg-textB {
   font-size : 10px;
   kerning : -1;
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
   text-anchor : middle;
   vertical-align : middle;
   stroke : #f8f8f8;
@@ -236,7 +236,7 @@ SPAN.nodeno {
 .svg-textF {
   font-size : 10px;
   kerning : -1;
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
   text-anchor : middle;
   vertical-align : middle;
 }
@@ -251,7 +251,7 @@ PRE#parsed_pl {
 }
 
 DIV#explain_tbl_cont > TABLE TD, TABLE#stat TD {
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
   font-size   : 8pt;
   padding     : 6px 6px 2px 6px;
 }
@@ -271,7 +271,7 @@ TABLE#stat TD.spacer {
   text-decoration: underline;
   text-decoration-style: dashed;
   cursor: pointer;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family: 'Consolas', monospace;
 }
 
 TD.int {
@@ -324,7 +324,7 @@ DIV#explain_tbl_cont > TABLE TH, TABLE#stat TH {
   padding     : 2px;
   margin      : 0;
   font-size   : 7pt;
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
   /* font-family: 'Consolas', 'Lucida Console'; */
   font-weight : normal;
   text-align  : center;
@@ -332,7 +332,7 @@ DIV#explain_tbl_cont > TABLE TH, TABLE#stat TH {
 }
 
 DIV#parsed > PRE, DIV#text > PRE, DIV#domain > PRE {
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
   font-size   : 10pt;
   line-height : 1.5em;
   white-space: pre-wrap;
@@ -343,14 +343,14 @@ DIV#parsed > PRE, DIV#text > PRE, DIV#domain > PRE {
 TABLE.tbl_common_prop TD{
   font-size : .85rem;
   line-height: 1.2;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family: 'Consolas', monospace;
   padding: .25rem!important;
 }
 
 
 DIV#context TABLE TD {
   font-size : 9pt;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family: 'Consolas', monospace;
 }
 
 
@@ -386,7 +386,7 @@ DIV#context TABLE#context-tb TD > PRE {
   margin      : 0;
   color       : #808080;
   font-size   : 9pt;
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
   white-space: pre-wrap;
   word-break: break-all;
 }
@@ -422,7 +422,7 @@ DIV#context SPAN.int {
 .popover-content {
   padding: 3px;
   font-size: 10pt;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family: 'Consolas', monospace;
 }
 
 DIV#popover-body{
@@ -515,9 +515,9 @@ DIV.cpicons-conteiner{
 }
 
 .line-numbers a {
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family: 'Consolas', monospace;
   display: block;
-  font-size: 80% !important;
+  font-size: 10pt;
   white-space: nowrap;
   color: #a0a0a0;
 }
@@ -540,6 +540,8 @@ DIV.cpicons-conteiner{
 .fa {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
+  font-size: 10pt;
+  font-size: 10pt;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -565,8 +567,8 @@ span.sql_node + span {
 SVG TEXT.labelG {
   text-anchor: middle;
   dominant-baseline : middle;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
-  font-size: 8px;
+  font-family: 'Consolas', monospace;
+  font-size: 10pt;
   line-height: 8px;
   pointer-events: none;
   font-optical-sizing: none;
@@ -581,7 +583,7 @@ DIV#explain_tbl_cont > TABLE TD PRE {
   margin      : 0;
   font-size   : 10pt;
   line-height : 1.5em;
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
   height: 100%;
   white-space: pre-wrap;
   word-break: break-all;
@@ -596,7 +598,7 @@ TABLE#stat TD PRE {
   margin      : 0;
   font-size   : 10pt;
   line-height : 1.5em;
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
   height: 100%;
   white-space: pre-wrap;
   word-break: break-all;
@@ -655,7 +657,7 @@ span.adv_name {
   border-radius:5px;
   border:1px solid #c0c0c0;
   padding:4px;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family: 'Consolas', monospace;
   margin-right: 2px;
 }
 
@@ -692,7 +694,7 @@ DIV.map_chart_el{
   display: inline-block;
   color: #21367c;
   font-size:10pt;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family: 'Consolas', monospace;
 }
 
 
@@ -779,24 +781,24 @@ TD.level-divider{
   border: none;
   border-right : 4px solid #e8e8e8;
   padding: 0 2px 0 0!important;
-  font-size: 10pt!important;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 10pt;
+  font-family: 'Consolas', monospace;
 }
 
 TD.level-divider-o{
   border: none;
   border-right : 4px solid #6080a0;
   padding: 0 2px 0 0!important;
-  font-size: 10pt!important;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 10pt;
+  font-family: 'Consolas', monospace;
 }
 
 TD.level-divider-b{
   border: none;
   border-right : 4px solid #a0c0e0;
   padding: 0 2px 0 0!important;
-  font-size: 10pt!important;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 10pt;
+  font-family: 'Consolas', monospace;
 }
 
 TD.node-text{
@@ -804,15 +806,15 @@ TD.node-text{
   width: 100%;
   padding: 4px 0 4px 8px !important;
   /* margin: -2px 0 -2px 0!important; */
-  font-size: 10pt!important;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 10pt;
+  font-family: 'Consolas', monospace;
   color: #A0A0A0!important;
   word-break: break-word;
 }
 
 DIV.node-text{
-  font-size: 10pt!important;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 10pt;
+  font-family: 'Consolas', monospace;
   color: #A0A0A0!important;
   display: inline-block;
   padding-left:5px;
@@ -827,7 +829,7 @@ DIV.toggle_icon {
   width: 16px;
   padding-top: 2px;
   padding-left: 6px;
-  font-size: 7pt;
+  font-size: 10pt;
 }
 
 DIV.toggle_icon_dg {
@@ -835,7 +837,7 @@ DIV.toggle_icon_dg {
   height: 18px;
   width: 16px;
   padding-top: 2px;
-  font-size: 7pt!important;
+  font-size: 10pt;
 }
 TD.def_td{
   padding: 0 0 0 4px!important;
@@ -851,7 +853,7 @@ TD.def_td{
   /*border: 1px solid #e0e0e0;*/
   padding: .5rem;
   margin-top : -.5rem;
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
 }
 
 .idxs-node-c{
@@ -881,8 +883,8 @@ TD.def_td{
 
 .sql_relation_idxs {
   color: #C00040;
-  font-size: 1.4rem;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 10pt;
+  font-family: 'Consolas', monospace;
 }
 .summary-table{
   min-width: 800px;
@@ -908,7 +910,7 @@ TD.def_td{
 .speeds-io{
   color:#A0A0A0;
   font-size: 10pt;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family: 'Consolas', monospace;
 }
 
 .speeds-io-td{
@@ -945,7 +947,7 @@ DIV.buf-sum{
 
 DIV.buf-sum-str{
   font-size: 10pt;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family: 'Consolas', monospace;
   padding-top: 2px;
   /* padding-right: 4px; */
   line-height: 16px;
@@ -953,8 +955,8 @@ DIV.buf-sum-str{
 
 SPAN.buf-sum-td{
   /*color: #A0A0A0;*/
-  font-size: 8pt;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 10pt;
+  font-family: 'Consolas', monospace;
   white-space: nowrap;
 }
 
@@ -983,10 +985,10 @@ DIV.io-speed{
 .advs-node{
   border: #CCCCCC solid 1px;
   padding: .5rem;
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
 }
 .adv-text{
-  font-family : 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family : 'Consolas', monospace;
   font-size: 10pt;
 }
 .buffer{
@@ -995,8 +997,8 @@ DIV.io-speed{
 
 pre.pre_tooltip {
   background-color: #f5f5f5 !important;
-  font-size: 9pt!important;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-size: 10pt;
+  font-family: 'Consolas', monospace;
 }
 
 pre.err_msg {
@@ -1045,8 +1047,8 @@ DIV#node-head-ext SVG {
   shape-rendering:crispEdges;
 }
 DIV#node-head SVG TEXT.label {
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
-  font-size: 10px!important;
+  font-family: 'Consolas', monospace;
+  font-size: 10pt;
   font-weight: normal;
   /*dominant-baseline : middle;*/
   /*dominant-baseline : hanging;*/
@@ -1132,7 +1134,7 @@ span.navigate {
 }
 div.nav_lnks td{
   padding: 0 4px!important;
-  font-size: 8pt!important;
+  font-size: 10pt;
 }
 
 div.cp_icon_cont{
@@ -1147,18 +1149,18 @@ div.rels-sql-s{
   padding: .5rem;
   margin: .5rem 0 .5rem .5rem;
   min-width:700px;
-  font-size: 11px!important;
+  font-size: 10pt;
 }
 div.rels-sql-s pre{
-  font-size: 11px!important;
+  font-size: 10pt;
 }
 div.rel-idx{
   margin: .5rem 0 .5rem 3rem;
   min-width:700px;
-  font-size: 11px!important;
+  font-size: 10pt;
 }
 div.rel-idx pre{
-  font-size: 11px!important;
+  font-size: 10pt;
   white-space: break-spaces;
 }
 .struct-link{
@@ -1179,20 +1181,20 @@ span.snap-ts{
   margin-right: 0.4rem;
   margin-top: 0.1rem;
   color: #808080;
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
+  font-family: 'Consolas', monospace;
 }
 span.stat-link{
-  font-size: 16px;
+  font-size: 10pt;
   margin-top: 0.1rem;
   margin-left: 0.4rem;
 }
 
 span.err-dep{
-  /*font-size: 16px;*/
+  /*font-size: 10pt;
   color: #808080;
 }
 span.parsed-err{
-  /*font-size: 16px;*/
+  /*font-size: 10pt;
   color: #000000;
   font-weight: 800;
 }
@@ -1258,8 +1260,8 @@ SVG.navstack RECT {
   cursor: pointer;
 }
 SVG.navstack TEXT {
-  font-family: 'Fira Code', 'Ubuntu Mono', 'Lucida Console', monospace;
-  font-size: 10px;
+  font-family: 'Consolas', monospace;
+  font-size: 10pt;
   font-weight: normal;
   /*dominant-baseline: ideographic;*/
   dominant-baseline: alphabetic;

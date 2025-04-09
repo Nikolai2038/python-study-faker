@@ -14,6 +14,7 @@
 /sql/2_query/*.log
 /sql/2_query/*.html
 /sql/2_query/*.lnk
+/sql/2_query/[0-9]_4*
 
 # Generated file from ./sql/04_fill_tables.sql.example
 /sql/1_reset/04_fill_tables.sql
