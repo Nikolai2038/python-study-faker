@@ -1,6 +1,6 @@
 #!/bin/sh
 
-is_remote=1
+is_remote=0
 
 explain_select_in_sql() {
   if [ "$#" -ne 1 ]; then
