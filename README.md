@@ -73,7 +73,7 @@ words_in_dictionary = 1000
 Запустить проект в IDE или командой:
 
 ```sh
-./venv/bin/python main.py
+./venv/bin/python ./python/main.py
 ```
 
 Вставки выводятся при помощи метода `COPY`.

@@ -2,14 +2,14 @@
 
 main() {
   # Create directory for dumps if not already
-  mkdir --parents ./dumps || return "$?"
+  mkdir --parents ./sql/0_dumps || return "$?"
 
   # Download dump
   PGPASSWORD='' pg_dump \
     --host=localhost \
     --port=5432 \
     --username=postgres \
-    --dbname=ups_system_db \
+    --dbname=imdb_test \
     --format=p \
     --encoding=UTF8 \
     --no-owner \
@@ -19,7 +19,7 @@ main() {
     --if-exists \
     --verbose \
     --compress=0 \
-    --file="./dumps/ups_system_db_dump_$(date +'%Y-%m-%d_%H-%M-%S').sql" || return "$?"
+    --file="./sql/0_dumps/ups_system_db_dump_$(date +'%Y-%m-%d_%H-%M-%S').sql" || return "$?"
 }
 
 main "$@" || exit "$?"
